@@ -36,11 +36,7 @@ You can invoke this skill by asking the agent to:
 
 The agent will output a standardized report and suggest a plan for improvement.
 
-## Publishing to skills.sh
-
-1.  Push this repository to GitHub.
-2.  Add the topics `gemini-skill`, `vibe-coding`, and `ai-agent` to your repo.
-3.  Users can install it via:
+### Users can install it via:
     ```bash
-    npx skills add <your-username>/ai-debt-scanner
+    npx skills add sebamar88/ai-debt-scanner
     ```
