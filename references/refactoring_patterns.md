@@ -1,11 +1,11 @@
 # AI Refactoring Patterns
 
-Este documento sirve como guía para transformar código con "vibe coding debt" en código idiomático y mantenible.
+Guidelines for transforming "vibe coding debt" into idiomatic, maintainable code.
 
 ## 1. Large Functions -> Decomposition
-**Problema**: La IA tiende a escribir funciones de >50 líneas que manejan múltiples responsabilidades.
+**Issue**: AI tends to write >50 line functions handling multiple responsibilities.
 
-❌ **Bad (IA-style)**:
+❌ **Bad (AI-style)**:
 ```python
 def process_data(data):
     # logic for validation (20 lines)
@@ -23,9 +23,9 @@ def process_data(data):
 ```
 
 ## 2. Empty Catches -> Resilient Error Handling
-**Problema**: Bloques `catch` vacíos o excepciones genéricas.
+**Issue**: Empty `catch` blocks or generic exceptions used as a "quick fix".
 
-❌ **Bad (IA-style)**:
+❌ **Bad (AI-style)**:
 ```typescript
 try {
   doSomething();
@@ -48,5 +48,5 @@ try {
 ```
 
 ## 3. Structural Bloat -> Module Extraction
-**Problema**: Archivos de >300 líneas.
-**Solución**: Identificar sub-dominios (e.g., helpers, types, api-calls) y moverlos a archivos dedicados.
+**Issue**: Files >300 lines.
+**Solution**: Identify sub-domains (helpers, types, API calls) and move them to dedicated files.

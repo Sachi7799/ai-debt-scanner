@@ -171,14 +171,18 @@ class AIDebtScanner:
         
         avg_score = sum(r.score for r in self.reports) / len(self.reports)
         print(f"\nAI DEBT SCAN REPORT | Avg Score: {avg_score:.2f}")
-        for r in sorted(self.reports, key=lambda x: x.score, reverse=True)[:5]:
-            print(f"[{r.score:3}] {r.file_path} ({len(r.issues)} issues)")
+        print(f"{'='*40}")
+        for r in sorted(self.reports, key=lambda x: x.score, reverse=True)[:10]:
+            chunk_flag = " [CHUNK REQ]" if r.requires_chunking else ""
+            print(f"[{r.score:3}] {r.file_path} (approx. {r.token_estimate} tokens){chunk_flag}")
+            for issue in r.issues[:3]:
+                print(f"      - L{issue.line}: {issue.rule} ({issue.message})")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description='AI Technical Debt Scanner')
     parser.add_argument('path', nargs='?', default='.', help='Path to scan')
     parser.add_argument('--json', action='store_true', help='Output in JSON format')
-    parser.add_argument('--toon', action='store_true', help='Output in TOON (Token-Oriented Object Notation) format')
+    parser.add_argument('--toon', action='store_true', help='Output in TOON format')
     args = parser.parse_args()
     
     scanner = AIDebtScanner(args.path)

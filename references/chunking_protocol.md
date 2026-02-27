@@ -1,28 +1,27 @@
-# Protocolo de Análisis por Chunks (Fragmentado)
+# Chunked Analysis Protocol
 
-Cuando un archivo es detectado con `[CHUNK REQ]` (Estimación > 1000 tokens), el agente DEBE seguir este protocolo de análisis para evitar saturar el contexto y mantener la coherencia del análisis.
+When a file is flagged with `[CHUNK REQ]` (Estimated > 1000 tokens), the agent MUST follow this analysis protocol to avoid context saturation and maintain coherence.
 
-## Parámetros de Segmentación
-*   **Tamaño de Chunk**: ~1000 tokens (Aproximadamente 4000 caracteres o 150-200 líneas de código).
-*   **Solapamiento (Overlap)**: ~100 tokens (Aproximadamente 400 caracteres o 20 líneas).
-*   **Validación de Límites**: Cada interacción con el LLM no debe exceder los límites del modelo (e.g., Gemini 2.0 Flash ~1M, pero para análisis profundo se recomiendan contextos de <10k para mayor precisión en refactorización).
+## Segmentation Parameters
+*   **Chunk Size**: ~1000 tokens (Approx. 4000 characters or 150-200 lines of code).
+*   **Overlap**: ~100 tokens (Approx. 400 characters or 20 lines).
+*   **Validation Limits**: Each interaction should stay within model-specific sweet spots for deep reasoning (<10k tokens).
 
-## Flujo de Trabajo
+## Workflow
 
-### 1. Lectura Inicial de Estructura
-Antes de procesar los chunks, obtén la estructura global del archivo (importaciones, nombres de clases/funciones principales) para tener el mapa mental del archivo.
+### 1. Initial Structure Overview
+Before processing chunks, obtain the global file structure (imports, main class/function names) to build a mental map.
 
-### 2. Procesamiento de Chunks Iterativo
-Para cada archivo de gran tamaño, utiliza `read_file` con `offset` y `limit` de forma secuencial:
+### 2. Iterative Chunk Processing
+For large files, use `read_file` with `offset` and `limit` sequentially:
 
 *   **Chunk 1**: `offset: 0`, `limit: 200`
-*   **Chunk 2**: `offset: 180` (20 líneas de solapamiento), `limit: 200`
-*   **Chunk 3**: `offset: 360`, `limit: 200`
-*   ... hasta el final del archivo.
+*   **Chunk 2**: `offset: 180` (20-line overlap), `limit: 200`
+*   ... until the end of the file.
 
-### 3. Síntesis de Hallazgos
-*   Identifica violaciones que cruzan las fronteras de los chunks (e.g., una función que empieza en el Chunk 1 y termina en el 3).
-*   Mantén un registro de las variables globales o estados compartidos entre fragmentos.
+### 3. Synthesis of Findings
+*   Identify violations crossing chunk boundaries.
+*   Keep track of global variables or shared states.
 
-### 4. Resolución Quirúrgica
-Al proponer cambios, enfócate en el chunk específico. Si el cambio requiere modificar múltiples partes distantes del archivo, realiza los cambios en pasos secuenciales validados individualmente.
+### 4. Surgical Resolution
+Propose changes focusing on the specific chunk. If a change requires modifying distant parts of the file, perform them in sequentially validated steps.

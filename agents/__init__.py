@@ -24,7 +24,6 @@ def run_orchestration(target_dir="."):
     # 3. Cleaner Agent(s)
     cleaner = CleanerAgent()
     for plan in plans:
-        # In a full multi-agent system, each of these could be a separate thread/LLM call
         cleaner.apply_fixes(plan['file'], "Hotspots from TOON...")
 
 if __name__ == "__main__":
