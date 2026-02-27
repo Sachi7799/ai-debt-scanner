@@ -59,5 +59,5 @@ Scanned Files with Debt: 2
 2.  Add the topics `gemini-skill`, `vibe-coding`, and `ai-agent` to your repo.
 3.  Users can install it via:
     ```bash
-    npx skills add <your-username>/ai-debt-scanner
+    npx skills add sebamar88/ai-debt-scanner
     ```
