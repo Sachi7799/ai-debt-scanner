@@ -10,11 +10,14 @@ Analyze the codebase to identify technical debt hotspots, specifically targeting
 - **Context-Aware Scanning**: Apply the **Contextual Overrides** defined in `references/rules.md` (e.g., ignoring `MAGIC_NUMBERS` in tests).
 
 ## Workflow
+0.  **Context Discovery**: Before scanning, search for local project "laws" in files like `GEMINI.md`, `CLAUDE.md`, `.cursorrules`, `.ai-debt-rules.md`, or `CONTRIBUTING.md`.
+    - **Dynamic Rules**: Extract local conventions (e.g., naming styles, forbidden libraries) and apply them as custom high-priority rules.
+    - **Auto-Proposal**: If no local rules are found, analyze the project structure and offer to generate a `.ai-debt-rules.md` tailored to the detected stack.
 1.  **Identify Files**: Use `glob` or `git diff` based on the requested mode.
-2.  **Survey Rules**: Run `grep_search` (NOT OS-specific `grep`) to find markers across all files.
-3.  **Calculate Scores**: Apply the weighted point system from `rules.md`.
+2.  **Research & Survey**: Use `grep_search` to find markers across all files, combined with local rules found in Step 0.
+3.  **Calculate Scores & Trends**: Apply the weighted system from `rules.md`. If `.ai-debt-history.json` exists, compare scores to report the **Debt Trend** (Increasing/Stable/Decreasing).
 4.  **Rank Hotspots**: Sort files by their total score.
-5.  **Context Check**: Before reporting a vulnerability, verify if the file path matches an override pattern in `rules.md`.
+5.  **Context Check**: Apply overrides from `rules.md` and local project rules.
 
 ## Output Requirement: TOON (Token-Oriented Object Notation)
 You must produce a report in the **TOON** JSON format. This line-specific protocol is essential for the "Architect" and "Cleaner" agents to perform surgical refactorings without context saturation.
