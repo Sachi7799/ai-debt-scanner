@@ -6,18 +6,27 @@ description: Advanced framework for detecting "vibe coding" and AI-generated tec
 # AI Debt Scanner Framework
 
 This skill transforms the AI agent into a specialized Technical Debt Auditor and Architect. It operates in two modes: **Audit Mode** (detecting existing debt) and **Guardrail Mode** (preventing debt during generation).
-
 ## Core Principles
 - **Foundational Standards**: Enforces **KISS, DRY, YAGNI, and SOLID** principles at the architectural level.
 - **Enterprise Guardrails**: Proactively detects **Security Smells**, **Documentation Gaps**, and **Dependency Overkill**.
+- **Anti-Hallucination Protocol**: If a framework or library version is unknown or modern (e.g., React 19, Next.js 15), the agent MUST use **Context7** (`resolve-library-id`, `query-docs`) or **Google Search** to verify API signatures and best practices.
 - **Test-Driven Refactoring**: Mandatory verification before and after any code modification.
-- **Framework-Specific Intelligence**: Adapts to modern patterns (React 19+, Node ESM, FastAPI, etc.) to prevent anti-patterns.
 - **OS & Runtime Agnostic**: Works on Windows, macOS, and Linux without external dependencies.
 - **Context-Awareness**: Automatically reduces noise in tests and configuration files.
 
 ---
 
+## 0. Research Phase (Preventing Hallucinations)
+**CRITICAL:** Before auditing or generating code for a specific stack, if there is ANY ambiguity regarding the latest API methods:
+1.  Use `resolve-library-id` to find the correct Context7 ID.
+2.  Use `query-docs` to fetch up-to-date snippets and documentation.
+3.  Use `google_web_search` as a fallback for the latest breaking changes or obscure errors.
+This prevents "vibe coding" where the AI invents non-existent methods or uses deprecated patterns.
+
+---
+
 ## 1. Audit Mode (Finding Debt)
+...
 When asked to "scan", "audit", or "check for debt", you can use the following specialized modes:
 
 ### Specialized Audit Commands
