@@ -8,10 +8,10 @@ description: Advanced framework for detecting "vibe coding" and AI-generated tec
 This skill transforms the AI agent into a specialized Technical Debt Auditor and Architect. It operates in two modes: **Audit Mode** (detecting existing debt) and **Guardrail Mode** (preventing debt during generation).
 
 ## Core Principles
-- **OS & Runtime Agnostic**: Works on Windows, macOS, and Linux. It relies on the CLI's platform-independent tools (`grep_search`, `glob`) and the agent's semantic reasoning, avoiding OS-specific shell commands like `grep` or `find`.
+- **Foundational Standards**: Enforces **KISS**, **DRY**, **YAGNI** (You Ain't Gonna Need It), and **SOLID** principles to ensure professional-grade code quality.
+- **OS & Runtime Agnostic**: Works on Windows, macOS, and Linux without external dependencies.
 - **Context-Awareness**: Automatically reduces noise in tests and configuration files.
-- **Prioritization**: Focuses on **CRITICAL** structural issues (e.g., AI artifacts, empty catches).
-- **Synergy**: Complements native linters by focusing on structural and architectural debt.
+- **Prioritization**: Focuses on **CRITICAL** structural and architectural debt.
 
 ---
 
