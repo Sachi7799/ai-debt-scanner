@@ -6,11 +6,10 @@ This is a universal reasoning framework designed for AI agents (like Gemini, Cla
 
 - 🌍 **OS & Runtime Agnostic:** Works natively on Windows, macOS, and Linux without requiring Python, Node.js, or any external binaries.
 - 🛡️ **Enterprise Guardrails:** Proactively detects **Security Smells**, **Documentation Gaps**, and **Dependency Overkill**.
-- 🔍 **Anti-Hallucination Protocol:** Mandatory grounding using reliable sources (e.g., **Google Search**, specialized MCPs like **Context7**, or official docs) for unknown or modern frameworks, preventing "vibe coding" hallucinations.
-- 🧪 **Test-Driven Refactoring:** Mandatory verification before and after any code modification. No refactor is applied without baseline and verification tests.
-- 🌫️ **Context-Aware Scanning:** Automatically reduces noise in test files (ignores Magic Numbers in `**/tests/**` or `*.spec.*`) and relaxes rules for configuration and orchestration files.
+- 🧪 **Context-Aware Scanning:** Automatically reduces noise in test files (ignores Magic Numbers in `**/tests/**` or `*.spec.*`) and relaxes rules for configuration and orchestration files.
+- 🌫️ **Dynamic Context Discovery:** Automatically scans for project laws in `GEMINI.md`, `CLAUDE.md`, or `.ai-debt-rules.md` to adapt its audit to your specific team standards.
 - ⚡ **Incremental Audits:** Supports `--diff` mode to scan only modified files, making it ideal for pre-commit hooks.
-- ⚖️ **Severity-Based Scoring:** Classifies debt as **CRITICAL** (e.g., AI artifacts, empty catches, security risks), **WARNING** (structural bloat, cognitive overload), or **INFO** (magic numbers, redundant comments).
+- ⚖️ **Severity-Based Scoring:** Classifies debt as **CRITICAL** (e.g., security risks, AI artifacts), **WARNING** (structural bloat, cognitive overload), or **INFO** (magic numbers, redundant comments).
 - 🧠 **Universal Support:** Handles C++, C#, Haskell, Pascal, PHP, Shell, Java, Python, and more by focusing on semantic and architectural patterns (**KISS, DRY, YAGNI, SOLID**).
 
 ## How it Works
@@ -20,6 +19,17 @@ The framework implements a **Multi-Agent Reasoning Protocol**:
 2.  **Architect Agent**: Analyzes vulnerabilities and creates a surgical refactoring plan for high-scoring hotspots.
 3.  **Cleaner Agent**: Executes targeted fixes using **Test-Driven Refactoring**, ensuring no regressions through mandatory baseline and verification tests.
 
+## Automation: Git Hooks ⚓
+
+Stop "vibe coding" before it reaches your repository. You can integrate the scanner as a `pre-commit` hook to audit only your staged changes.
+
+### Pro-Developer Workflow:
+- **Incremental**: Only scans files you've touched (`git diff --cached`).
+- **Helpful, Not Annoying**: If critical debt is found, the agent offers to **Auto-Fix** it using the `Cleaner Agent` before allowing the commit.
+- **Thresholds**: Block only on **CRITICAL** issues. Warn on **WARNINGS**. Ignore **INFO**.
+
+See `templates/hooks/pre-commit-ai-debt.sh` for an implementation template.
+
 ## Project Structure
 
 ```
@@ -27,6 +37,8 @@ The framework implements a **Multi-Agent Reasoning Protocol**:
 ├── skills/
 │   └── ai-debt-scanner/
 │       └── SKILL.md         # Skill definition and core reasoning protocol
+├── templates/
+│   └── hooks/               # Git hook automation templates
 └── references/
     ├── agents/              # Specialized agent instructions (Scanner, Architect, Cleaner)
     ├── rules.md             # Scoring logic, severities, and contextual overrides
@@ -42,17 +54,7 @@ You can invoke the scanner by asking the agent to:
 - "Show me the top 5 most critical offenders (`--top-k 5`)."
 - "Audit my code for vibe-coding patterns in [Pascal/C++/Java/Haskell/etc.]."
 
-The agent will generate a standardized **TOON (Token-Oriented Object Notation)** JSON report:
-```json
-{
-  "summary": {
-    "files_scanned": 12,
-    "temperature": "High",
-    "top_offenders": ["src/legacy_monster.cpp"]
-  },
-  "vulnerabilities": [...]
-}
-```
+The agent will generate a standardized **TOON (Token-Oriented Object Notation)** JSON report.
 
 ### Installation
 

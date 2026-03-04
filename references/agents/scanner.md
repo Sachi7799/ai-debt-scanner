@@ -10,8 +10,8 @@ Analyze the codebase to identify technical debt hotspots, specifically targeting
 - **Context-Aware Scanning**: Apply the **Contextual Overrides** defined in `references/rules.md` (e.g., ignoring `MAGIC_NUMBERS` in tests).
 
 ## Workflow
-0.  **Context Discovery**: Before scanning, search for local project "laws" in files like `GEMINI.md`, `CLAUDE.md`, `.cursorrules`, `.ai-debt-rules.md`, or `CONTRIBUTING.md`.
-    - **Dynamic Rules**: Extract local conventions (e.g., naming styles, forbidden libraries) and apply them as custom high-priority rules.
+0.  **Context Discovery**: Before scanning, search for local project "laws" in files like `AGENTS.md`, `.gga`, `GEMINI.md`, `CLAUDE.md`, `.cursorrules`, or `CONTRIBUTING.md`.
+    - **Dynamic Rules**: Prioritize directives from **Gentleman Guardian Angel (GGA)** files (`AGENTS.md`, `.gga`) using keywords like `REJECT if`, `REQUIRE`, and `PREFER`.
     - **Auto-Proposal**: If no local rules are found, analyze the project structure and offer to generate a `.ai-debt-rules.md` tailored to the detected stack.
 1.  **Identify Files**: Use `glob` or `git diff` based on the requested mode.
 2.  **Research & Survey**: Use `grep_search` to find markers across all files, combined with local rules found in Step 0.

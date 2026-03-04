@@ -9,6 +9,7 @@ This skill transforms the AI agent into a specialized Technical Debt Auditor and
 ## Core Principles
 - **Foundational Standards**: Enforces **KISS, DRY, YAGNI, and SOLID** principles at the architectural level.
 - **Enterprise Guardrails**: Proactively detects **Security Smells**, **Documentation Gaps**, and **Dependency Overkill**.
+- **Dynamic Context Discovery**: Automatically adapts to project-specific laws in `AGENTS.md`, `.gga`, `GEMINI.md`, or `CLAUDE.md`, making it the perfect companion for **Gentleman Guardian Angel (GGA)** or other Agent-first repositories.
 - **Anti-Hallucination Protocol**: If a framework or library version is unknown or modern (e.g., React 19, Next.js 15), the agent MUST perform **Grounding** using reliable sources (e.g., official documentation via **Google Search**, specialized MCPs like **Context7**, or community-verified snippets) to verify API signatures and best practices.
 - **Test-Driven Refactoring**: Mandatory verification before and after any code modification.
 - **OS & Runtime Agnostic**: Works on Windows, macOS, and Linux without external dependencies.
