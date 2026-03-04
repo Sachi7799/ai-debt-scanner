@@ -8,10 +8,12 @@ description: Advanced framework for detecting "vibe coding" and AI-generated tec
 This skill transforms the AI agent into a specialized Technical Debt Auditor and Architect. It operates in two modes: **Audit Mode** (detecting existing debt) and **Guardrail Mode** (preventing debt during generation).
 
 ## Core Principles
-- **Foundational Standards**: Enforces **KISS**, **DRY**, **YAGNI** (You Ain't Gonna Need It), and **SOLID** principles to ensure professional-grade code quality.
+- **Foundational Standards**: Enforces **KISS, DRY, YAGNI, and SOLID** principles at the architectural level.
+- **Enterprise Guardrails**: Proactively detects **Security Smells**, **Documentation Gaps**, and **Dependency Overkill**.
+- **Test-Driven Refactoring**: Mandatory verification before and after any code modification.
+- **Framework-Specific Intelligence**: Adapts to modern patterns (React 19+, Node ESM, FastAPI, etc.) to prevent anti-patterns.
 - **OS & Runtime Agnostic**: Works on Windows, macOS, and Linux without external dependencies.
 - **Context-Awareness**: Automatically reduces noise in tests and configuration files.
-- **Prioritization**: Focuses on **CRITICAL** structural and architectural debt.
 
 ---
 

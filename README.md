@@ -5,23 +5,26 @@ This is a universal reasoning framework designed for AI agents (like Gemini, Cla
 ## Key Advancements
 
 - 🌍 **OS & Runtime Agnostic:** Works natively on Windows, macOS, and Linux without requiring Python, Node.js, or any external binaries.
+- 🛡️ **Enterprise Guardrails:** Proactively detects **Security Smells**, **Documentation Gaps**, and **Dependency Overkill**.
 - 🧪 **Context-Aware Scanning:** Automatically reduces noise in test files (ignores Magic Numbers in `**/tests/**` or `*.spec.*`) and relaxes rules for configuration and orchestration files.
 - ⚡ **Incremental Audits:** Supports `--diff` mode to scan only modified files, making it ideal for pre-commit hooks.
-- ⚖️ **Severity-Based Scoring:** Classifies debt as **CRITICAL** (e.g., AI artifacts, empty catches), **WARNING** (structural bloat), or **INFO** (magic numbers, debug leftovers).
-- 🧠 **Universal Support:** Handles C++, C#, Haskell, Pascal, PHP, Shell, Java, Python, and more by focusing on semantic and architectural patterns.
+- ⚖️ **Severity-Based Scoring:** Classifies debt as **CRITICAL** (e.g., AI artifacts, empty catches, security risks), **WARNING** (structural bloat, cognitive overload), or **INFO** (magic numbers, redundant comments).
+- 🧠 **Universal Support:** Handles C++, C#, Haskell, Pascal, PHP, Shell, Java, Python, and more by focusing on semantic and architectural patterns (**KISS, DRY, YAGNI, SOLID**).
 
 ## How it Works
 
 The framework implements a **Multi-Agent Reasoning Protocol**:
 1.  **Scanner Agent**: The auditor identifies hotspots using platform-independent tools (`grep_search`, `glob`) and calculates a "Project Debt Temperature".
 2.  **Architect Agent**: Analyzes vulnerabilities and creates a surgical refactoring plan for high-scoring hotspots.
-3.  **Cleaner Agent**: Executes targeted fixes (using `replace` or `write_file`) and verifies the reduction in debt.
+3.  **Cleaner Agent**: Executes targeted fixes using **Test-Driven Refactoring**, ensuring no regressions through mandatory baseline and verification tests.
 
 ## Project Structure
 
 ```
 .
-├── SKILL.md                 # Skill definition and core reasoning protocol
+├── skills/
+│   └── ai-debt-scanner/
+│       └── SKILL.md         # Skill definition and core reasoning protocol
 └── references/
     ├── agents/              # Specialized agent instructions (Scanner, Architect, Cleaner)
     ├── rules.md             # Scoring logic, severities, and contextual overrides
@@ -37,7 +40,7 @@ You can invoke the scanner by asking the agent to:
 - "Show me the top 5 most critical offenders (`--top-k 5`)."
 - "Audit my code for vibe-coding patterns in [Pascal/C++/Java/Haskell/etc.]."
 
-The agent will generate a standardized JSON report:
+The agent will generate a standardized **TOON (Token-Oriented Object Notation)** JSON report:
 ```json
 {
   "summary": {
