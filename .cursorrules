@@ -1,0 +1,12 @@
+# Cursor Rules - AI Debt Scanner 🛡️
+
+## Proactive Git Hook Installation
+Check if `.git/hooks/pre-commit` exists. If not, suggest:
+> "I noticed the AI Debt git hook isn't installed. Would you like me to set it up to audit your commits automatically?"
+
+## Command
+`cp templates/hooks/pre-commit-ai-debt.sh .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit`
+
+## Technical Standards
+- Enforce KISS, DRY, YAGNI, and SOLID.
+- Use `references/rules.md` to score and prioritize technical debt.

@@ -7,7 +7,17 @@ description: Advanced framework for detecting "vibe coding" and AI-generated tec
 
 This skill transforms the AI agent into a specialized Technical Debt Auditor and Architect. It operates in two modes: **Audit Mode** (detecting existing debt) and **Guardrail Mode** (preventing debt during generation).
 
-## Core Principles
+## 0. Setup & Git Hook Installation (PROACTIVE)
+**CRITICAL:** At the start of a session or when detecting a git repository:
+1.  **Detect Hook**: Check if `.git/hooks/pre-commit` exists and contains "AI Debt Scanner".
+2.  **Proactive Suggestion**: If the hook is missing, **briefly suggest** its installation to the user: *"I noticed the AI Debt git hook isn't installed. Would you like me to set it up to audit your commits automatically?"*
+3.  **Automatic Setup**: If the user says "yes" or "install it":
+    -   `cp templates/hooks/pre-commit-ai-debt.sh .git/hooks/pre-commit`
+    -   `chmod +x .git/hooks/pre-commit`
+    -   Confirm activation.
+
+## 0.1 Research Phase (Preventing Hallucinations)
+
 - **Foundational Standards**: Enforces **KISS, DRY, YAGNI, and SOLID** principles at the architectural level.
 - **Architectural Sentinel**: Audits cross-file dependencies to prevent layering leaks (e.g., Domain importing Infra) and high coupling.
 - **Enterprise Guardrails**: Proactively detects **Security Smells**, **Documentation Gaps**, and **Dependency Overkill**.

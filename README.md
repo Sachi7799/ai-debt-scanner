@@ -23,6 +23,12 @@ The framework implements a **Multi-Agent Reasoning Protocol**:
 
 Stop "vibe coding" before it reaches your repository. You can integrate the scanner as a `pre-commit` hook to audit only your staged changes.
 
+### Automatic Installation
+Just ask your agent:
+> "Install the AI debt git hook"
+
+The agent will automatically copy the template to `.git/hooks/pre-commit` and set the correct permissions.
+
 ### Pro-Developer Workflow:
 - **Incremental**: Only scans files you've touched (`git diff --cached`).
 - **Helpful, Not Annoying**: If critical debt is found, the agent offers to **Auto-Fix** it using the `Cleaner Agent` before allowing the commit.
